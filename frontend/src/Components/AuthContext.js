@@ -6,7 +6,7 @@ export const AuthProvide=(props)=> {
     const [userName, setUserName] = useState(localStorage.getItem("userName") || null);
     const [sellerId, setSellerId] = useState(localStorage.getItem("sellerId") || null);
     const [sellerName, setSellerName] = useState(localStorage.getItem("sellerName") || null);
-
+    const URL="http://localhost:5500";
 
     useEffect(() => {
         localStorage.setItem("userId", userId);
@@ -26,7 +26,7 @@ export const AuthProvide=(props)=> {
     };
     return(
 
-        <AuthContext.Provider value={{userId,userName,sellerId,sellerName,setUserId,LogOut,setUserName,setSellerId,setSellerName}}>
+        <AuthContext.Provider value={{userId,userName,sellerId,sellerName,setUserId,LogOut,setUserName,setSellerId,setSellerName,URL}}>
             {props.children}
         </AuthContext.Provider>
     )

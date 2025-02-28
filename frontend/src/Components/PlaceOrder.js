@@ -6,6 +6,7 @@ import { AuthContext } from "./AuthContext";
 export default function PlaceOrder({setIsAddOrderPopUp}){
     const [displayOrder,setDisplayOrder]=useState([])
     const userAuth=useContext(AuthContext);
+    const url=userAuth.URL;
     const sellerId=userAuth.sellerId;
     const sellerName=userAuth.sellerName;
 
@@ -51,7 +52,7 @@ export default function PlaceOrder({setIsAddOrderPopUp}){
             };
           
             try {
-              const response = await axios.post("http://localhost:5500/add-order", {newOrder,sellerId});
+              const response = await axios.post(`${url}/add-order`, {newOrder,sellerId});
               alert(response.data.message);
               setIsAddOrderPopUp(false);
               setInputOrder({

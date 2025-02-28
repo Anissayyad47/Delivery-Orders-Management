@@ -14,10 +14,12 @@ import { FaUser,FaBars } from "react-icons/fa";
 
 
 export default function SellerPage(){
+
     const navigate =useNavigate();
     const userAuth=useContext(AuthContext);
     const sellerId=userAuth.sellerId;
     const sellerName=userAuth.sellerName;
+    const url=userAuth.URL;
     // const userName=localStorage.getItem("userName")
     // const userId=localStorage.getItem("userId")
     const [orderList,setOrderLsit]=useState([]);
@@ -32,7 +34,7 @@ export default function SellerPage(){
       useEffect(() => {
         const fetchOrders = async () => {
           try {
-            const response = await axios.get(`http://localhost:5500/sellerOrder/${sellerId}`);
+            const response = await axios.get(`${url}/sellerOrder/${sellerId}`);
             setOrderLsit(response.data);
             const total = response.data.reduce((sum, order) => sum + (order.price || 0), 0);
             setCharges(total);  // Fix: setOrderLsit → setOrderList

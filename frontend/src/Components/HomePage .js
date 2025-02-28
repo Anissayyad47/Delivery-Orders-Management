@@ -13,6 +13,7 @@ const HomePage = () => {
     const [deliveryLogin,setDeliveryLogin]=useState(false);
     const [sellerLogin,setSellerLogin]=useState(false);
     const userAuth=useContext(AuthContext);
+    const url=userAuth.URL;
 
     const [formData, setFormData] = useState({
         username: "",
@@ -32,7 +33,7 @@ const HomePage = () => {
           return;
         }
         try{
-            const response=await axios.post("http://localhost:5500/delivery_partner_register",formData)
+            const response=await axios.post(`${url}/delivery_partner_register`,formData)
             if(response.data.message==="User registered successfully"){
               toast.success("✅ User registered successfully", {
                 position: "top-center",
@@ -72,7 +73,7 @@ const HomePage = () => {
       const handleSubmit= async(e)=> {
         e.preventDefault();
         try{
-            const response=await axios.post("http://localhost:5500/delivery_partner_login",formData);
+            const response=await axios.post(`${url}/delivery_partner_login`,formData);
             if(response.data.message==="Login successfully"){
               toast.success("✅ Login successfully", {
                 position: "top-center",
@@ -114,7 +115,7 @@ const HomePage = () => {
           return;
         }
         try{
-            const response=await axios.post("http://localhost:5500/seller_partner_register",formData)
+            const response=await axios.post(`${url}/seller_partner_register`,formData)
             // alert(response.data.message)
             if(response.data.message==="User registered successfully"){
               toast.success("✅ User registered successfully", {
@@ -152,7 +153,7 @@ const HomePage = () => {
       const handleSellerSubmit= async(e)=> {
         e.preventDefault();
         try{
-            const response=await axios.post("http://localhost:5500/seller_partner_login",formData);
+            const response=await axios.post(`${url}/seller_partner_login`,formData);
             // alert(response.data.message);
             if(response.data.message==="Login successfully"){
               toast.success("✅ Login successfully", {

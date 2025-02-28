@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 
 export default function SellerOrders(){
   const userAuth=useContext(AuthContext);
+  const url=userAuth.URL;
   // const sellerId=userAuth.sellerId;
   const sellerName=userAuth.sellerName;
     // const userId=localStorage.getItem("userId")
@@ -39,7 +40,7 @@ export default function SellerOrders(){
     
 
     useEffect(() => {
-        axios.get("http://localhost:5500/api/user")
+        axios.get(`${url}/api/user`)
           .then((response) => {
             console.log("Received data:", response.data);
             if (Array.isArray(response.data)) {
@@ -57,7 +58,7 @@ export default function SellerOrders(){
             order_status: "Cancelled",
           }
           try{
-            await axios.put(`http://localhost:5500/api/orders/${delivery}`, updateData)
+            await axios.put(`${url}/api/orders/${delivery}`, updateData)
             toast.success("✅ Delivery Cancelled Successfully!", {
               position: "top-center",
               autoClose: 3000,

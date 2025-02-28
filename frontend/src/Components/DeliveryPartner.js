@@ -22,6 +22,7 @@ export default function DeliveryPartner(){
     const [charges,setCharges]=useState(0);
     const [isAddOrderPopUp,setIsAddOrderPopUp]=useState(false);
     const userAuth=useContext(AuthContext);
+    const url=userAuth.URL;
     const userId=userAuth.userId;
     const userName=userAuth.userName;
     const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function DeliveryPartner(){
       useEffect(() => {
         const fetchOrders = async () => {
           try {
-            const response = await axios.get(`http://localhost:5500/DeliveryOrder/${userId}`);
+            const response = await axios.get(`${url}/DeliveryOrder/${userId}`);
             setOrderLsit(response.data);
             const total = response.data.reduce((sum, order) => sum + (order.price || 0), 0);
             setCharges(total);  // Fix: setOrderLsit → setOrderList
