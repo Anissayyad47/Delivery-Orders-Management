@@ -6,7 +6,7 @@ export const AuthProvide=(props)=> {
     const [userName, setUserName] = useState(localStorage.getItem("userName") || null);
     const [sellerId, setSellerId] = useState(localStorage.getItem("sellerId") || null);
     const [sellerName, setSellerName] = useState(localStorage.getItem("sellerName") || null);
-    const URL="http://localhost:5500";
+    const URL="https://delivery-orders-management-backend.onrender.com";
 
     useEffect(() => {
         localStorage.setItem("userId", userId);
