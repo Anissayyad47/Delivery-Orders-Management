@@ -3,8 +3,8 @@ const cors = require("cors");
 const express = require("express");
 require("dotenv").config();
 
-const Delivery_partner=require("./models/Delivery_partner");
-const Seller_partner=require("./models/Seller_partner");
+const Delivery_partner=require("./Models/Delivery_partner");
+const Seller_partner=require("./Models/Seller_partner");
 const Order = require("./Models/ModelOrder");
 
 
