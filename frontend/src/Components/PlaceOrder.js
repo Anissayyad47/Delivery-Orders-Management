@@ -10,7 +10,7 @@ export default function PlaceOrder({setIsAddOrderPopUp}){
     const sellerId=userAuth.sellerId;
     const sellerName=userAuth.sellerName;
 
-    const [inputOrder,setInputOrder]=useState({
+    const [inputOrder,setInputOrder]=useState({  // store input
             seller_name:sellerName,
             address: "",
             products: "",
@@ -24,11 +24,11 @@ export default function PlaceOrder({setIsAddOrderPopUp}){
             order_status: "Pending",
         })
 
-        const handleChange = (e) => {
+        const handleChange = (e) => { 
             setInputOrder({...inputOrder,[e.target.name]:e.target.value});
         };
     
-        const handleOrderSubmit = async () => {
+        const handleOrderSubmit = async () => { 
             if (!inputOrder.seller_name || !inputOrder.address || !inputOrder.customer_no || 
                 !inputOrder.products || !inputOrder.distance || !inputOrder.price) {
               alert("Please fill in all required fields.");
@@ -52,7 +52,7 @@ export default function PlaceOrder({setIsAddOrderPopUp}){
             };
           
             try {
-              const response = await axios.post(`${url}/add-order`, {newOrder,sellerId});
+              const response = await axios.post(`${url}/add-order`, {newOrder,sellerId}); // send data to backend
               alert(response.data.message);
               setIsAddOrderPopUp(false);
               setInputOrder({
