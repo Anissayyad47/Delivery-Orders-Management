@@ -48,9 +48,9 @@ export default function DeliveryPartner(){
                 <>
                 <div className="navbar1-seller-overlay">
                     <nav className="navbar1-seller">
-                    <button className="navbar1-seller-menu-btn" >
-                        <p>Delivery Orders</p>
-                    </button>
+                        <button className="navbar1-seller-menu-btn" >
+                            <p>Delivery Orders</p>
+                        </button>
                     </nav>
                 </div>
         
