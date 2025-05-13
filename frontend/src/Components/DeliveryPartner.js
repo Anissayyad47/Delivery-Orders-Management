@@ -14,6 +14,7 @@ import { FaUser,FaBars } from "react-icons/fa";
 // import Navbar from "./NavBar";
 
 
+
 export default function DeliveryPartner(){
     const navigate =useNavigate();
     // const userName=localStorage.getItem("userName")
